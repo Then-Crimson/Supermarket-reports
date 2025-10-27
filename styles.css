@@ -1,0 +1,96 @@
+:root{
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --accent: #2d7ff9;
+  --danger: #d9534f;
+  --warning: #f0ad4e;
+  --ok: #4caf50;
+  --text: #111827;
+  --muted: #6b7280;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  padding:20px;
+}
+
+header{ text-align:center; margin-bottom:18px }
+h1{ margin:6px 0; font-size:24px }
+.subtitle{ margin:0; color:var(--muted) }
+
+main{
+  display:grid;
+  grid-template-columns: 420px 1fr;
+  gap:18px;
+  align-items:start;
+}
+
+.card{
+  background:var(--card);
+  padding:16px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(17,24,39,0.06);
+}
+
+label{ display:block; margin-bottom:10px; font-size:14px; color:var(--muted) }
+input[type="text"], input[type="date"], input[type="number"], select{
+  width:100%;
+  padding:8px 10px;
+  border-radius:6px;
+  border:1px solid #e6e9ee;
+  margin-top:6px;
+  font-size:14px;
+}
+
+.grid{ display:grid; gap:12px; grid-template-columns:1fr }
+
+.actions{ display:flex; gap:8px; margin-top:8px; flex-wrap:wrap }
+button{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+button#clear-storage{ background:#6b7280 }
+button#export-json{ background:#0ea5a4 }
+button#import-json-btn{ background:#ef7bb3 }
+
+.product-list{ margin-top:12px; display:flex; flex-direction:column; gap:8px; max-height:60vh; overflow:auto; padding-right:6px }
+
+.product{
+  border-radius:8px;
+  padding:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  border:1px solid #eef2f7;
+  background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+}
+
+.product .info{ flex:1 }
+.product .meta{ text-align:right; min-width:200px }
+
+.badge{ display:inline-block; padding:4px 8px; border-radius:999px; font-size:12px; color:white }
+
+.badge.expired{ background:var(--danger) }
+.badge.soon{ background:var(--warning); color:#111 }
+.badge.ok{ background:var(--ok) }
+
+.product small{ color:var(--muted); display:block }
+
+.controls{ display:flex; gap:10px; align-items:center; margin-bottom:8px; flex-wrap:wrap }
+#alert-area{ margin-bottom:8px; color:var(--danger); font-weight:600 }
+
+.actions button, .controls input, .controls select { font-size:14px }
+
+/* Responsive */
+@media (max-width:980px){
+  main{ grid-template-columns:1fr; }
+}

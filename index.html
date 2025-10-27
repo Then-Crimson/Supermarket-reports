@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Control de Caducidad - Supermercado</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Control de Caducidad - Supermercado</h1>
+    <p class="subtitle">Registra productos y recibe alertas cuando estén próximos a vencer.</p>
+  </header>
+
+  <main>
+    <section class="card" id="form-card">
+      <h2>Registrar producto</h2>
+      <form id="product-form">
+        <div class="grid">
+          <label>
+            Nombre
+            <input id="name" type="text" required />
+          </label>
+
+          <label>
+            Categoría
+            <input id="category" type="text" placeholder="Lácteos, Bebidas, Frutas..." />
+          </label>
+
+          <label>
+            Cantidad
+            <input id="quantity" type="number" min="1" value="1" required />
+          </label>
+
+          <label>
+            Fecha de caducidad
+            <input id="expiry" type="date" required />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="save-btn">Guardar producto</button>
+          <button type="button" id="clear-storage">Borrar todo</button>
+          <button type="button" id="export-json">Exportar JSON</button>
+          <button type="button" id="import-json-btn">Importar JSON</button>
+          <input id="import-file" type="file" accept="application/json" style="display:none" />
+        </div>
+      </form>
+    </section>
+
+    <section class="card" id="list-card">
+      <h2>Lista de productos</h2>
+
+      <div class="controls">
+        <label>
+          Buscar:
+          <input id="search" placeholder="nombre o categoria..." />
+        </label>
+
+        <label>
+          Filtro:
+          <select id="filter">
+            <option value="all">Todos</option>
+            <option value="expired">Caducados</option>
+            <option value="soon">Próximos a vencer (<=3 días)</option>
+            <option value="ok">Bien (>3 días)</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="alert-area" aria-live="polite"></div>
+
+      <div id="product-list" class="product-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Hecho con ❤ — Puedes subir esto a GitHub Pages</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
