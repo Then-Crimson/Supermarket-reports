@@ -99,6 +99,7 @@ function render() {
     if (p.image) {
       const img = document.createElement('img');
       img.src = p.image;
+      img.classList.add('zoomable');
       item.prepend(img);
     }
 
@@ -231,6 +232,20 @@ importFileInput.addEventListener('change', async ev => {
   }
 });
 
+/* ---------- Zoom de imagen ---------- */
+const modal = document.getElementById('image-modal');
+const zoomedImg = document.getElementById('zoomed-img');
+
+document.addEventListener('click', e => {
+  const img = e.target.closest('.zoomable');
+  if (img) {
+    zoomedImg.src = img.src;
+    modal.style.display = 'flex';
+  } else if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
 /* ---------- Flash ---------- */
 function flash(msg) {
   const el = document.createElement('div');
@@ -249,4 +264,3 @@ function flash(msg) {
 
 /* ---------- Init ---------- */
 render();
-
