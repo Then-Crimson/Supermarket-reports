@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>Control de Caducidad - Supermercado</h1>
-    <p class="subtitle">Registra productos y recibe alertas cuando estén próximos a vencer.</p>
+    <p class="subtitle">Registra productos, imágenes y recibe alertas de caducidad.</p>
   </header>
 
   <main>
@@ -30,6 +30,16 @@
           <label>
             Cantidad
             <input id="quantity" type="number" min="1" value="1" required />
+          </label>
+
+          <label>
+            Gramaje / Litros
+            <input id="weight" type="text" placeholder="Ej: 100gr, 1L, 500ml..." />
+          </label>
+
+          <label>
+            Imagen del producto
+            <input id="image" type="file" accept="image/*" />
           </label>
 
           <label>
